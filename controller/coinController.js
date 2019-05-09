@@ -6,7 +6,7 @@ coinC.getAll=(function(req, res){
     coinModel.find({}, function(err, datos){
         if(err){
             res.status(500).json({status:500, err});
-        }else{
+        }else{https://github.com/calderonra/COINAPI
             console.log('Data obtenidad con exito')
             res.status(200).json({status:200, datos});
         }
@@ -39,7 +39,8 @@ coinC.registrar=(function(req, res){
 coinC.buscarporName= (function(req, res){
     console.log(req)
     console.log(req.params.name)
-    coinModel.find({name: req.params.name}, function(err, coin){
+    coinModel.findByOne({name: req.params.name}, function(err, coin){
+    
         if(err || coin==null){
             res.status(500).json({
                 msj:'No fue encontrado la moneda',
