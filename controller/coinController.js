@@ -39,7 +39,7 @@ coinC.registrar=(function(req, res){
 coinC.buscarporName= (function(req, res){
     console.log(req)
     console.log(req.params.name)
-    coinModel.findByOne({name: req.params.name}, function(err, coin){
+    coinModel.findOne({name: req.params.name}, function(err, coin){
     
         if(err || coin==null){
             res.status(500).json({
